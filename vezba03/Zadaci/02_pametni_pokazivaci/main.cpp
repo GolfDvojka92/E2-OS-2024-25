@@ -93,7 +93,7 @@ int main(){
         Deljeni pokazivači su kao i pametni sa jednom razlikom: mogu se kopirati slobodno,
         ali svaki pamti da je kopija i na centralnom mestu se broji koliko referenci ima
         na datu memoriju. Kako koji shared_ptr izlazi iz svog opsega, poziva svoj
-        destruktor koji smanjuje globalni brojač referenci za 1. Kada on dostigne vrednot 0
+        destruktor koji smanjuje globalni brojač referenci za 1. Kada on dostigne vrednost 0
         Dealocira se i memorija na koju pokazivač pokazuje.
 
         To znači da možete imati dva pokazivača na neku memoriju i osloboditi je tek kada su
