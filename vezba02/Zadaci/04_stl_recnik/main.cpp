@@ -6,10 +6,20 @@ Uneti 3 engleske reči i njihove prevode na srpski.
 */
 
 #include <iostream>
+#include <map>
+#include <string>
 
 using namespace std;
 
 int main()
 {
+    map<string,string> m;
+    m["Monkey"] = "Majmun";
+    m["Headphones"] = "Slusalice";
+    m["Cellphone"] = "Mobilni";
+    cout << "Unesite rec: ";
+    string unos;
+    cin >> unos;
+    cout << "Prevod: " << m[unos] << endl;
     return 0;
 }
