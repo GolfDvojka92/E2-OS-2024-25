@@ -9,7 +9,7 @@ Zatim je potrebno na konzolu ispisati hard disk i procesor svakog raÄunara u uÄ
 */
 
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int main()
