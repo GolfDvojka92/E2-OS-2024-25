@@ -23,6 +23,11 @@ vector<int> min(const vector<int>& a, const vector<int>& b) {
 
 int main()
 {
-    
+    vector<int> a = { 7, 13, 3, 6, 30, 4 }, b = { 5, 8, 10, 5, 32, 7 };
+    vector<int> r = min(a, b);
+    for (auto it = r.begin(); it != r.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
     return 0;
 }

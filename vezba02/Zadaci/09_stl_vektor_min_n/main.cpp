@@ -9,7 +9,6 @@ Podrazumeva se: v.size()>=n
 
 #include <iostream>
 #include <vector>
-#include <list>
 #include <algorithm>
 
 using namespace std;
@@ -24,5 +23,11 @@ vector<int> min_n(const vector<int>& v,	int n) {
 
 int main()
 {
+    vector<int> v = { 2, 14, 7, 10, 11, 4 };
+    vector<int> m = min_n(v, 3);
+    for (auto it = m.begin(); it != m.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
     return 0;
 }
