@@ -15,6 +15,11 @@
  * neophodno za ispis u izlaznu datoteku.
 */
 #define BROJ_RADNIKA 6
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <vector>
+#include <string>
 
 using namespace std;
 
