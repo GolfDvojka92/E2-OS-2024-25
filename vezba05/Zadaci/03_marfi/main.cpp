@@ -15,7 +15,10 @@ Pošto se implementira funkcija kasa, potrebno je još implementirati u funkciji
 - Uporediti to sa redom koji je korisnik izabrao. Ako je korisnik izabrao najsporiji red, ispisati da je Marifijev zakon potvrđen, u suprotnom ispisati da je Marfi, u ovoj konkretnoj simulaciji, na žalost omanuo.
 */
 
+#include <chrono>
+#include <functional>
 #include <iostream>
+#include <ratio>
 #include <thread>
 #include <random>
 
@@ -29,7 +32,16 @@ const int MAX_MILISEKUNDI_PO_KUPCU = 100;
 default_random_engine gen;
 
 void kasa(int broj_kupaca, duration<double, milli>& vreme_na_kasi) {
-	// Implementirati...
+    duration<double, nano> seme = steady_clock::now() - seme_pocetak;
+    gen.seed(seme.count());// Inicijalizacija generatora slučajnih brojeva da pri svakom pokretanju daje različite brojeve
+
+    uniform_int_distribution<int> br_milisekundi(1, MAX_MILISEKUNDI_PO_KUPCU);
+    auto brMil = bind(br_milisekundi,gen);
+    int totalMil = 0;
+    for (int i = 0; i < broj_kupaca; i++) {
+        totalMil += brMil();
+    }
+    vreme_na_kasi = duration<double, milli>(totalMil);
 }
 
 int main() {
@@ -56,11 +68,16 @@ int main() {
         niti[i].join();
     }
 
-    // Nakon završetka rada niti, u nizu "vremena" su evidentirana trajanja kupovine na svakoj od kasa, sada među tim vremenima treba naći najduže:
-    // Implementirati...
+    duration<double, milli> najduza = vremena[0];
+    for (int i = 1; i < UKUPNO_KASA; i++) {
+        if (vremena[i] > najduza)
+            najduza = vremena[i];
+    }
 
-    // Ukoliko je najduže trajala kupovina na kasi koju je kupac izabrao, onda je Marfijev zakon potrvrđen:
-    // Implementirati...
+    if (vremena[moja_kasa] == najduza)
+        cout << "Marfi pokido" << endl;
+    else
+        cout << "Marfi sjebo" << endl;
 
     return 0;
 }
