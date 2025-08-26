@@ -13,8 +13,9 @@ kraj - iterator iza poslednjeg elementa koji se uzima u obzir pri računanju sum
 zbir - parameter kroz koji funkcija treba da vrati izračunatu sumu
 */
 void f(ci pocetak, ci kraj, double& zbir) {
-    for (ci it = pocetak; it != kraj; it++) {
-        zbir += *it;
+    zbir = 0;
+    for (; pocetak != kraj; pocetak++) {
+        zbir += *pocetak;
     }
 }
 

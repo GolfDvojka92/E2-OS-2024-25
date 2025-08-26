@@ -31,8 +31,7 @@ typedef vector<double>::const_iterator ci;  //Pogledati resenje suma_vektora.cpp
      a samo se a_begin proverava da li je dosao do a_end (posto je dovoljno proveravati samo jednu granicu
      jer je kolicina elemenata ista u svakom vektoru).
 */
-void f(ci a_begin, ci a_end, ci b_begin,      
-       vector<double>::iterator sum_begin) {
+void f(ci a_begin, ci a_end, ci b_begin, vector<double>::iterator sum_begin) {
     for(; a_begin != a_end;   ++a_begin, ++b_begin, ++sum_begin)
         *sum_begin = *a_begin + *b_begin;
 }
