@@ -13,7 +13,9 @@ kraj - iterator iza poslednjeg elementa koji se uzima u obzir pri računanju sum
 zbir - parameter kroz koji funkcija treba da vrati izračunatu sumu
 */
 void f(ci pocetak, ci kraj, double& zbir) {
-    // Implementirati ...
+    for (ci it = pocetak; it != kraj; it++) {
+        zbir += *it;
+    }
 }
 
 #endif // SUMA_VEKTORA_HPP_INCLUDED
